@@ -33,13 +33,13 @@ Any subset works — providers without a key show as disabled with a hint instea
 
 ## Models
 
-A small hard-coded list of open-weight models that all three providers serve on their shared/serverless endpoints (verified 2026-10-09, see `lib/models.ts`):
+A small hard-coded list of **US-origin open-weight models** (OpenAI, NVIDIA, Meta), verified against each provider's serverless catalog on 2026-10-09 (see `lib/models.ts`). gpt-oss-120B is currently the only US open model all three providers serve; for the others, providers that don't host the model show as disabled with a hint:
 
-| Model | Together | Fireworks | Baseten |
-| --- | --- | --- | --- |
-| gpt-oss-120B | `openai/gpt-oss-120b` | `accounts/fireworks/models/gpt-oss-120b` | `openai/gpt-oss-120b` |
-| DeepSeek V4.1 Flash | `deepseek-ai/DeepSeek-V4.1-Flash` | `accounts/fireworks/models/deepseek-v4p1-flash` | `deepseek-ai/DeepSeek-V4.1-Flash` |
-| Kimi K3 | `moonshotai/Kimi-K3` | `accounts/fireworks/models/kimi-k3` | `moonshotai/Kimi-K3` |
+| Model | Origin | Together | Fireworks | Baseten |
+| --- | --- | --- | --- | --- |
+| gpt-oss-120B (default) | OpenAI (US) | `openai/gpt-oss-120b` | `accounts/fireworks/models/gpt-oss-120b` | `openai/gpt-oss-120b` |
+| Nemotron 3 Ultra 550B | NVIDIA (US) | — (retired Sep 2026) | `accounts/fireworks/models/nemotron-3-ultra-nvfp4` | `nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B` |
+| Llama 3.3 70B Instruct | Meta (US) | `meta-llama/Llama-3.3-70B-Instruct-Turbo` | — (removed May 2026) | — (not in catalog) |
 
 All three providers expose OpenAI-compatible chat completions, so one `openai` SDK client with a per-provider `baseURL` covers everything (`stream: true`, `stream_options: { include_usage: true }`).
 

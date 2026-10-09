@@ -14,18 +14,15 @@ export interface Price {
 export const PRICES: Record<ProviderId, Record<string, Price>> = {
   together: {
     "gpt-oss-120b": { inputPerM: 0.15, outputPerM: 0.6 },
-    "deepseek-v4.1-flash": { inputPerM: 0.3, outputPerM: 1.2 },
-    "kimi-k3": { inputPerM: 2.7, outputPerM: 13.5 },
+    "llama-3.3-70b": { inputPerM: 1.04, outputPerM: 1.04 },
   },
   fireworks: {
     "gpt-oss-120b": { inputPerM: 0.15, outputPerM: 0.6 },
-    "deepseek-v4.1-flash": { inputPerM: 0.3, outputPerM: 1.2 },
-    "kimi-k3": { inputPerM: 3.0, outputPerM: 15.0 },
+    "nemotron-3-ultra": { inputPerM: 0.6, outputPerM: 2.4 },
   },
   baseten: {
     "gpt-oss-120b": { inputPerM: 0.1, outputPerM: 0.5 },
-    "deepseek-v4.1-flash": { inputPerM: 0.3, outputPerM: 1.2 },
-    "kimi-k3": { inputPerM: 3.0, outputPerM: 15.0 },
+    "nemotron-3-ultra": { inputPerM: 0.6, outputPerM: 2.4 },
   },
 };
 

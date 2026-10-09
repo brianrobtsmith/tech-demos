@@ -6,7 +6,7 @@ Source: [Chamath's post](https://x.com/chamath/status/2101406709231337710) quoti
 A single-user, local page that races **Together AI, Fireworks, and Baseten** serving the **same open model**. Pick a model, type a prompt, hit Run, and within a minute you can see which provider gets the first token out fastest, which streams fastest, and what each run cost.
 
 ## In (MVP)
-- **One shared model, chosen from a small hard-coded list** of open models all three providers host (for example DeepSeek V3, Llama 3.3 70B Instruct, or a Qwen3 variant). Each entry maps to the provider-specific model ID. Default to one model; check the IDs against each provider's docs at build time and drop any entry a provider doesn't serve.
+- **One shared model, chosen from a small hard-coded list** of US-origin open models (for example gpt-oss-120B from OpenAI, NVIDIA Nemotron 3 Ultra, or Meta's Llama 3.3 70B Instruct — no Chinese-lab models). Each entry maps to the provider-specific model ID. Default to one model; check the IDs against each provider's docs at build time and disable any provider that doesn't serve an entry.
 - **Prompt box + Run button.** One prompt goes to every enabled provider at once.
 - **2–3 provider panels, side by side**, each streaming its answer live. Provider checkboxes; a provider with no key in `.env` shows as disabled with a short hint instead of throwing an error.
 - **Per-panel metrics:** time to first token (ms), tokens/sec (output tokens ÷ time from first to last token), total input/output tokens (from the `usage` chunk, otherwise a clearly marked estimate), and **estimated $** from a hard-coded price table (`$/1M input`, `$/1M output` per provider×model, with an "as of" date in the file).
