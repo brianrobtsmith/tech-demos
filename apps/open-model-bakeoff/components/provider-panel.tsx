@@ -109,7 +109,10 @@ export function ProviderPanel({
         <div className="flex items-center gap-1.5">
           {data.mock ? <Badge variant="outline">mock</Badge> : null}
           {data.fromHistory ? <Badge variant="outline">from history</Badge> : null}
-          <StatusBadge status={status} />
+          <StatusBadge
+            status={status}
+            notHosted={status === "disabled" && data.errorMessage !== null}
+          />
         </div>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
@@ -166,10 +169,16 @@ export function ProviderPanel({
   );
 }
 
-function StatusBadge({ status }: { status: PanelStatus }) {
+function StatusBadge({
+  status,
+  notHosted,
+}: {
+  status: PanelStatus;
+  notHosted?: boolean;
+}) {
   switch (status) {
     case "disabled":
-      return <Badge variant="secondary">no key</Badge>;
+      return <Badge variant="secondary">{notHosted ? "not hosted" : "no key"}</Badge>;
     case "unchecked":
       return <Badge variant="secondary">off</Badge>;
     case "waiting":
