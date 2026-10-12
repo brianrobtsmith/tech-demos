@@ -7,8 +7,24 @@
       "date": "2026-10-08",
       "status": "approved",
       "slug": "open-model-bakeoff"
+    },
+    {
+      "id": "2108645012644991251",
+      "title": "Grok Bot X-building templates (threat intel + X API integration)",
+      "url": "https://x.com/ericzakariasson/status/2108645012644991251",
+      "date": "2026-10-12",
+      "status": "proposed",
+      "slug": "x-threat-intel-radar"
     }
   ],
-  "skipped": [],
+  "skipped": [
+    {
+      "id": "2108283819560472987",
+      "title": "Atomic Machines Matter Compiler",
+      "url": "https://x.com/jeffholden/status/2108283819560472987",
+      "date": "2026-10-09",
+      "reason": "hardware, no public API"
+    }
+  ],
   "built": []
 }
