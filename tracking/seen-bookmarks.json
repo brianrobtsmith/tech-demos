@@ -15,14 +15,6 @@
       "date": "2026-10-12",
       "status": "proposed",
       "slug": "x-threat-intel-radar"
-    },
-    {
-      "id": "2078492579511906771",
-      "title": "ASD-STE100 Simplified Technical English as an LLM docs style constraint",
-      "url": "https://x.com/geogristle/status/2078492579511906771",
-      "date": "2026-10-16",
-      "status": "proposed",
-      "slug": "ste-docs-linter"
     }
   ],
   "skipped": [
@@ -40,6 +32,14 @@
       "date": "2026-10-16",
       "reason": "skipped by Brian",
       "slug": "learn-once-workspace"
+    },
+    {
+      "id": "2078492579511906771",
+      "title": "ASD-STE100 Simplified Technical English as an LLM docs style constraint",
+      "url": "https://x.com/geogristle/status/2078492579511906771",
+      "date": "2026-10-16",
+      "reason": "skipped by Brian",
+      "slug": "ste-docs-linter"
     }
   ],
   "built": []
