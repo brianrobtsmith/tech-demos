@@ -17,12 +17,12 @@
       "slug": "x-threat-intel-radar"
     },
     {
-      "id": "2110375311435034634",
-      "title": "Ramp Glass (shared skills + model router + per-project cost meter), via JTLonsdale quoting eglyman 2110007713396613568",
-      "url": "https://x.com/JTLonsdale/status/2110375311435034634",
-      "date": "2026-10-15",
+      "id": "2078492579511906771",
+      "title": "ASD-STE100 Simplified Technical English as an LLM docs style constraint",
+      "url": "https://x.com/geogristle/status/2078492579511906771",
+      "date": "2026-10-16",
       "status": "proposed",
-      "slug": "learn-once-workspace"
+      "slug": "ste-docs-linter"
     }
   ],
   "skipped": [
@@ -32,6 +32,14 @@
       "url": "https://x.com/jeffholden/status/2108283819560472987",
       "date": "2026-10-09",
       "reason": "hardware, no public API"
+    },
+    {
+      "id": "2110375311435034634",
+      "title": "Ramp Glass (shared skills + model router + per-project cost meter), via JTLonsdale quoting eglyman 2110007713396613568",
+      "url": "https://x.com/JTLonsdale/status/2110375311435034634",
+      "date": "2026-10-16",
+      "reason": "skipped by Brian",
+      "slug": "learn-once-workspace"
     }
   ],
   "built": []
