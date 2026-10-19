@@ -15,6 +15,14 @@
       "date": "2026-10-12",
       "status": "proposed",
       "slug": "x-threat-intel-radar"
+    },
+    {
+      "id": "2111156593693794386",
+      "title": "Marble Skill Taxonomy (open primary-school prerequisite graph, withmarbleapp/os-taxonomy) + interactive experiments",
+      "url": "https://x.com/lionel_mora/status/2111156593693794386",
+      "date": "2026-10-19",
+      "status": "proposed",
+      "slug": "kid-learning-paths"
     }
   ],
   "skipped": [
