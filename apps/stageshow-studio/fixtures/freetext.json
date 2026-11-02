@@ -1,0 +1,160 @@
+{
+  "withStageshow": {
+    "productName": "{{idea}}",
+    "summary": "One number, three rows, and room around them.",
+    "stills": [
+      {
+        "id": "home",
+        "caption": "Home",
+        "frame": "window",
+        "title": "{{idea}}",
+        "subtitle": "Today",
+        "heroLabel": "Open",
+        "heroValue": "{{hero}}",
+        "rows": [
+          {
+            "name": "{{focus}}",
+            "kind": "Needs a look",
+            "value": "{{a}}",
+            "barPct": 72,
+            "status": "On track"
+          },
+          {
+            "name": "This week",
+            "kind": "Coming up",
+            "value": "{{b}}",
+            "barPct": 48,
+            "status": "Room left"
+          },
+          {
+            "name": "Saved for later",
+            "kind": "Not this week",
+            "value": "{{c}}",
+            "barPct": 100,
+            "status": "Waiting"
+          }
+        ]
+      },
+      {
+        "id": "phone",
+        "caption": "On a phone",
+        "frame": "phone",
+        "title": "{{idea}}",
+        "subtitle": "Today",
+        "heroLabel": "Open",
+        "heroValue": "{{hero}}",
+        "rows": [
+          {
+            "name": "{{focus}}",
+            "kind": "Needs a look",
+            "value": "{{a}}",
+            "barPct": 72,
+            "status": "On track"
+          },
+          {
+            "name": "This week",
+            "kind": "Coming up",
+            "value": "{{b}}",
+            "barPct": 48,
+            "status": "Room left"
+          }
+        ]
+      }
+    ],
+    "bento": {
+      "statValue": "{{hero}}",
+      "statLabel": "Open right now",
+      "statement": "One next step, then the rest can wait.",
+      "bars": [
+        { "label": "Now", "pct": 72, "value": "{{a}}" },
+        { "label": "Later", "pct": 40, "value": "{{b}}" }
+      ]
+    }
+  },
+  "withoutStageshow": {
+    "productName": "{{idea}} Dashboard",
+    "summary": "Every label, helper, and placeholder at one weight, inside a screenshot frame.",
+    "stills": [
+      {
+        "id": "home",
+        "caption": "Main dashboard",
+        "frame": "window",
+        "title": "{{idea}} overview module",
+        "subtitle": "All widgets · last refresh · filter · export",
+        "heroLabel": "Primary KPI (count)",
+        "heroValue": "{{hero}}",
+        "rows": [
+          {
+            "name": "{{focus}}",
+            "kind": "Row type",
+            "value": "{{a}}",
+            "barPct": 72,
+            "status": "Status text, secondary status, owner, and a note about the widget"
+          },
+          {
+            "name": "This week",
+            "kind": "Row type",
+            "value": "{{b}}",
+            "barPct": 48,
+            "status": "Placeholder copy for the empty description line under the label"
+          },
+          {
+            "name": "Saved for later",
+            "kind": "Row type",
+            "value": "{{c}}",
+            "barPct": 100,
+            "status": "Another helper so the row matches the rows above it"
+          },
+          {
+            "name": "Archive",
+            "kind": "Row type",
+            "value": "{{d}}",
+            "barPct": 20,
+            "status": "Extra row so the list fills the card"
+          }
+        ]
+      },
+      {
+        "id": "phone",
+        "caption": "Mobile screenshot",
+        "frame": "phone",
+        "title": "{{idea}}",
+        "subtitle": "Nav · list · detail · more",
+        "heroLabel": "KPI",
+        "heroValue": "{{hero}}",
+        "rows": [
+          {
+            "name": "Item",
+            "kind": "Label",
+            "value": "{{a}}",
+            "barPct": 64,
+            "status": "Supporting line"
+          },
+          {
+            "name": "Item",
+            "kind": "Label",
+            "value": "{{b}}",
+            "barPct": 40,
+            "status": "Supporting line"
+          },
+          {
+            "name": "Item",
+            "kind": "Label",
+            "value": "{{c}}",
+            "barPct": 88,
+            "status": "Supporting line"
+          }
+        ]
+      }
+    ],
+    "bento": {
+      "statValue": "{{hero}}",
+      "statLabel": "KPI tile",
+      "statement": "Feature tile with a sentence of explanation under the title.",
+      "bars": [
+        { "label": "A", "pct": 72, "value": "{{a}}" },
+        { "label": "B", "pct": 40, "value": "{{b}}" }
+      ]
+    }
+  }
+}

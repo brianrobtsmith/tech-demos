@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accounts — Three accounts + suggested move (phone)</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e5e9f2;
+  --blue:#2563eb; --blue-50:#eff4ff; --radius:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#e8ecf3;color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+.page{max-width:440px;margin:0 auto;padding:24px 12px 48px}
+h1{font-size:20px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:12px;margin-bottom:12px;line-height:1.4}
+.note{background:#fffbeb;border:1px solid #fde68a;color:#78350f;padding:10px 12px;border-radius:10px;font-size:12px;margin-bottom:16px;line-height:1.4}
+.phone{background:var(--bg);border:1px solid #cbd5e1;border-radius:28px;padding:18px 14px 20px;max-width:390px;margin:0 auto;box-shadow:0 8px 28px rgba(15,23,42,.08)}
+.t{font-size:22px;font-weight:700;margin:0 0 2px}
+.t-sub{font-size:12px;color:var(--muted);margin:0 0 14px}
+.total{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin-bottom:12px}
+.total .lbl{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:2px}
+.total .big{font-size:32px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.subs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.subbox{background:#fafbfd;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.subbox .k{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.subbox .v{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;margin:14px 0 8px;padding:0 2px}
+.sec-h .n{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.sec-h .dim{font-size:11px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px}
+.acct{padding:12px 14px}
+.acct + .acct{border-top:1px solid var(--line);border-radius:0;margin:0;border-left:0;border-right:0;border-bottom:0}
+.acct-wrap{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden}
+.acct:first-child{border-radius:12px 12px 0 0}
+.acct:last-child{border-radius:0 0 12px 12px}
+.row2{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.nm{font-size:15px;font-weight:700;margin:0}
+.kind{font-size:11px;color:var(--muted);font-weight:500;padding:0;border:none;background:none}
+.meta{font-size:12px;color:var(--muted);margin:2px 0 8px;line-height:1.35}
+.amt-big{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.bar{height:8px;background:#e6e9ee;border-radius:6px;margin:0 0 6px;overflow:hidden}
+.bar > i{display:block;height:100%;background:var(--blue);border-radius:6px}
+.status{font-size:12px;color:var(--muted);line-height:1.35}
+.rate{font-size:11px;color:var(--muted);margin-top:4px}
+.move-title{font-size:16px;font-weight:700;margin:0 0 4px}
+.move-sub{font-size:12px;color:var(--muted);margin:0 0 12px;line-height:1.4}
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 12px}
+.ba .box{background:#fafbfd;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.ba .box .k{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.ba .box .line{display:flex;justify-content:space-between;font-size:12px;padding:2px 0;color:var(--muted)}
+.ba .box .line b{color:var(--ink);font-variant-numeric:tabular-nums}
+.btn{display:block;width:100%;text-align:center;background:var(--blue);color:#fff;font-weight:600;font-size:14px;padding:12px;border-radius:10px;border:none;margin:0 0 8px;cursor:default}
+.btn-ghost{display:block;width:100%;text-align:center;background:transparent;color:var(--blue);font-weight:600;font-size:13px;padding:8px;border:none;cursor:default}
+.note-g{font-size:11px;color:var(--muted);text-align:center;margin-top:4px;line-height:1.35}
+.cost-line{font-size:12px;color:var(--muted);margin:0 0 12px;line-height:1.4}
+.cost-line b{color:var(--ink)}
+.scenario{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:#fafbfd}
+.scenario .sh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0 0 4px}
+.scenario .sh .sn{font-size:13px;font-weight:700}
+.scenario .sh .sv{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.scenario .sd{font-size:12px;color:var(--muted);line-height:1.4}
+.scenario .math{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4}
+.forecast{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}
+.forecast .f{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 8px;text-align:center}
+.forecast .f .fk{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.forecast .f .fv{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px}
+.ret-card .row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
+.ret-card .row:last-child{border-bottom:none;padding-bottom:0}
+.ret-card .rn{font-size:14px;font-weight:700}
+.ret-card .rm{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.35}
+.ret-card .rv{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:-.01em;white-space:nowrap}
+.honesty{font-size:11px;color:var(--muted);line-height:1.4;padding-top:8px;border-top:1px dashed var(--line);margin-top:8px}
+.nav{display:flex;gap:4px;margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:6px}
+.nav span{flex:1;text-align:center;font-size:12px;color:var(--muted);padding:10px 4px;border-radius:8px}
+.nav .on{background:var(--blue-50);color:var(--blue);font-weight:600}
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Accounts — phone</h1>
+  <div class="sub">Proposed. Fictional Dana &amp; Sam Park — not real finances. Three accounts by when money is needed. “Who needs to work?” lives on Cash flow.</div>
+  <div class="note">Checking target = 2 × ($5,500 Monthly plans + $1,639 Your Number) = $14,278. Savings target = what's due on Plans in the next 24 months (dated dues) = $40,000 · decided. Kind labels are plain gray text. Bars are blue. Shortfalls are gray.</div>
+
+  <div class="phone" id="shot">
+    <div class="t">Accounts</div>
+    <div class="t-sub">Dana &amp; Sam Park · as of Oct 31, 2026</div>
+
+    <!-- 1. Total -->
+    <div class="total">
+      <div class="lbl">Total balance</div>
+      <div class="big">$500,000</div>
+      <div class="subs">
+        <div class="subbox">
+          <div class="k">Non-retirement</div>
+          <div class="v">$114,600</div>
+        </div>
+        <div class="subbox">
+          <div class="k">Retirement</div>
+          <div class="v">$385,400</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Three accounts -->
+    <div class="sec-h"><span class="n">Your three accounts</span><span class="dim">Fill order</span></div>
+    <div class="acct-wrap">
+      <div class="acct">
+        <div class="row2">
+          <div>
+            <div class="nm">Checking</div>
+            <div class="kind">This month’s spending</div>
+          </div>
+          <div class="amt-big">$16,400</div>
+        </div>
+        <div class="meta">Target $14,278 · 2 months of Monthly plans + Your Number</div>
+        <div class="bar" aria-hidden="true"><i style="width:100%"></i></div>
+        <div class="status">$2,122 over target</div>
+        <div class="rate">0.01% APY · Joint checking ···8049</div>
+      </div>
+      <div class="acct">
+        <div class="row2">
+          <div>
+            <div class="nm">Savings</div>
+            <div class="kind">Covers what's due in the next 2 years</div>
+          </div>
+          <div class="amt-big">$38,200</div>
+        </div>
+        <div class="meta">Target $40,000 · Covers what's due in the next 2 years · Target yield 3–5%</div>
+        <div class="bar" aria-hidden="true"><i style="width:95.5%"></i></div>
+        <div class="status">$1,800 short</div>
+        <div class="rate">Past 12 months: 4.0% · High-yield savings ···2214</div>
+        <div class="rate">Earned this year: $1,528 interest (4.0%)</div>
+      </div>
+      <div class="acct">
+        <div class="row2">
+          <div>
+            <div class="nm">Long-term savings</div>
+            <div class="kind">Everything beyond 2 years</div>
+          </div>
+          <div class="amt-big">$60,000</div>
+        </div>
+        <div class="meta">No fixed dollar target · Target yield 5%+ · the rest after Checking and Savings are topped up</div>
+        <div class="bar" aria-hidden="true"><i style="width:100%"></i></div>
+        <div class="status">On track for its role</div>
+        <div class="rate">Past 12 months: 6.2% · Taxable brokerage ···9901</div>
+        <div class="rate">Earned this year: $3,392 dividends and interest</div>
+        <div class="rate">+$2,080 market change (separate from income)</div>
+        <div class="rate">Past returns aren’t a promise of future results.</div>
+      </div>
+    </div>
+    <div class="note-g" style="text-align:left;margin:0 2px 10px;padding:0 2px">Target yields aren’t a promise. Returns can be lower, and long-term savings can lose value.</div>
+
+    <!-- 3. Suggested move -->
+    <div class="sec-h"><span class="n">Suggested move</span><span class="dim">Primary saver</span></div>
+    <div class="card">
+      <div class="move-title">Move $1,800 from Checking to Savings</div>
+      <div class="move-sub">Tops Savings up to its $40,000 target. Checking keeps $322 over its target. Any extra next time goes to Long-term savings.</div>
+      <div class="ba">
+        <div class="box">
+          <div class="k">Checking</div>
+          <div class="line"><span>Before</span><b>$16,400</b></div>
+          <div class="line"><span>After</span><b>$14,600</b></div>
+        </div>
+        <div class="box">
+          <div class="k">Savings</div>
+          <div class="line"><span>Before</span><b>$38,200</b></div>
+          <div class="line"><span>After</span><b>$40,000</b></div>
+        </div>
+      </div>
+      <button class="btn" type="button">Approve and move</button>
+      <button class="btn-ghost" type="button">I’ll move it myself</button>
+      <div class="note-g">Moves only between your own accounts.</div>
+    </div>
+
+        <!-- Who needs to work moved to Cash flow tab -->
+
+    <!-- 4. Retirement -->
+    <div class="sec-h"><span class="n">Retirement</span><span class="dim">Read-only · $385,400</span></div>
+    <div class="card ret-card">
+      <div class="row">
+        <div>
+          <div class="rn">401(k)</div>
+          <div class="rm">Dana · available at 59½ · ~2039<br>As of Oct 28, 2026</div>
+        </div>
+        <div class="rv">$312,000</div>
+      </div>
+      <div class="row">
+        <div>
+          <div class="rn">Roth IRA</div>
+          <div class="rm">Sam · contributions anytime; earnings at 59½<br>As of Oct 28, 2026</div>
+        </div>
+        <div class="rv">$73,400</div>
+      </div>
+      <div class="honesty">Based on current IRS rules. Not tax advice. We never move retirement money.</div>
+    </div>
+
+    <div class="nav"><span class="on">Accounts</span><span>Plans</span><span>Cash flow</span></div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+accounts.local.json
+*.local.json
+.env
+.env.local

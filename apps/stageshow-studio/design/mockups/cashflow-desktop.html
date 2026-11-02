@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cash flow — Who needs to work? (desktop)</title>
+<style>
+:root{
+  --bg:#f5f7fb; --card:#fff; --ink:#0f172a; --muted:#64748b; --line:#e5e9f2;
+  --blue:#2563eb; --blue-50:#eff4ff; --radius:14px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:#e8ecf3;color:var(--ink);font:14px/1.45 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif}
+.page{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+h1{font-size:22px;margin:0 0 4px}
+.sub{color:var(--muted);font-size:13px;margin-bottom:12px;line-height:1.4}
+.note{background:#fffbeb;border:1px solid #fde68a;color:#78350f;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:20px;line-height:1.4}
+.desk{background:var(--bg);border:1px solid #cbd5e1;border-radius:16px;padding:20px 22px;box-shadow:0 8px 28px rgba(15,23,42,.08)}
+.topbar{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:16px;gap:12px}
+.topbar .t{font-size:24px;font-weight:700;margin:0}
+.topbar .t-sub{font-size:13px;color:var(--muted);margin:2px 0 0}
+.nav-top{display:flex;gap:4px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:4px}
+.nav-top span{font-size:13px;color:var(--muted);padding:8px 16px;border-radius:8px}
+.nav-top .on{background:var(--blue-50);color:var(--blue);font-weight:600}
+.layout{display:grid;grid-template-columns:1fr 1.05fr;gap:16px}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+.sec-h{display:flex;justify-content:space-between;align-items:baseline;margin:0 0 8px;padding:0 2px}
+.sec-h .n{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.sec-h .dim{font-size:11px;color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.row2{display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+.nm{font-size:14px;font-weight:600}
+.kind{font-size:11px;color:var(--muted);font-weight:500}
+.amt{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}
+.amt-big{font-size:32px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.amt-g{font-size:14px;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums}
+.meta{font-size:12px;color:var(--muted);margin:4px 0 0;line-height:1.4}
+.link{font-size:12px;color:var(--blue);font-weight:600;text-decoration:none}
+.person{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--line)}
+.person:last-child{border-bottom:none}
+.inv-row{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);gap:10px}
+.rein{font-size:10px;color:var(--muted);font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
+.hline{display:flex;align-items:center;gap:10px;margin:10px 0 6px}
+.hline .lab{font-size:12px;color:var(--muted);width:40px;flex-shrink:0}
+.hline .track{flex:1;height:12px;background:#e6e9ee;border-radius:6px;overflow:hidden}
+.hline .track > i{display:block;height:100%;background:var(--blue);border-radius:6px}
+.hline .v{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;width:64px;text-align:right}
+.diff{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;margin-bottom:14px}
+.diff .lbl{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:2px}
+.scenario{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin-bottom:8px;background:#fafbfd}
+.scenario .sh{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin:0 0 4px}
+.scenario .sh .sn{font-size:13px;font-weight:700}
+.scenario .sh .sv{font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.scenario .sd{font-size:12px;color:var(--muted);line-height:1.4}
+.scenario .math{font-size:11px;color:var(--muted);margin-top:4px;line-height:1.4}
+.forecast{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px}
+.forecast .f{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 8px;text-align:center}
+.forecast .f .fk{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase}
+.forecast .f .fv{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:2px}
+.cost-line{font-size:12px;color:var(--muted);margin:0 0 12px;line-height:1.45}
+.cost-line b{color:var(--ink)}
+.setting{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:4px 0}
+.setting .lab{font-size:13px;font-weight:600}
+.tog{width:42px;height:24px;border-radius:12px;background:#cbd5e1;position:relative;flex-shrink:0}
+.tog::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.2)}
+</style>
+</head>
+<body>
+<div class="page">
+  <h1>Cash flow — desktop</h1>
+  <div class="sub">Proposed. Fictional Dana &amp; Sam Park. Left: money in, money out, difference, setting. Right: Who needs to work?</div>
+  <div class="note">Investment income defaults to reinvested (Brian, Oct 31). Not in Total in while both work; counted automatically in one-income / neither. Household toggle off by default.</div>
+
+  <div class="desk" id="shot">
+    <div class="topbar">
+      <div>
+        <div class="t">Cash flow</div>
+        <div class="t-sub">Dana &amp; Sam Park · each month</div>
+      </div>
+      <div class="nav-top">
+        <span>Accounts</span>
+        <span>Plans</span>
+        <span class="on">Cash flow</span>
+      </div>
+    </div>
+
+    <div class="layout">
+      <div>
+        <div class="sec-h"><span class="n">Money in</span><span class="dim">Take-home</span></div>
+        <div class="card">
+          <div class="person">
+            <div><div class="nm">Dana</div><div class="kind">Paychecks · via Plaid</div></div>
+            <div class="amt">$6,000</div>
+          </div>
+          <div class="person">
+            <div><div class="nm">Sam</div><div class="kind">Paychecks · via Plaid</div></div>
+            <div class="amt">$3,500</div>
+          </div>
+          <div class="inv-row">
+            <div>
+              <div class="nm" style="color:var(--muted)">Investment income</div>
+              <div class="kind">Interest and dividends from Savings and Long-term savings · avg last 12 months</div>
+            </div>
+            <div style="text-align:right;flex-shrink:0">
+              <div class="amt-g">$410/mo</div>
+              <div class="rein">Reinvested</div>
+            </div>
+          </div>
+          <div class="row2" style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line)">
+            <div class="nm">Total in</div>
+            <div class="amt" style="font-size:20px">$9,500</div>
+          </div>
+          <div class="meta">+ $410/mo reinvested (not counted in Total in while both work)</div>
+        </div>
+
+        <div class="sec-h"><span class="n">Money out</span><span class="dim">From Plans</span></div>
+        <div class="card">
+          <div class="person">
+            <div><div class="nm">Monthly plans</div><div class="kind">Envelopes + debt minimums</div></div>
+            <div class="amt">$5,500</div>
+          </div>
+          <div class="person">
+            <div><div class="nm">Your Number</div><div class="kind">Future plans this month</div></div>
+            <div class="amt">$1,639</div>
+          </div>
+          <div class="row2" style="margin-top:10px;padding-top:8px;border-top:1px solid var(--line)">
+            <div class="nm">Total out</div>
+            <div class="amt" style="font-size:20px">$7,139</div>
+          </div>
+          <div class="meta">Set on Plans. <a class="link" href="#">Change in Plans</a></div>
+        </div>
+
+        <div class="sec-h"><span class="n">This month</span><span class="dim">In vs out</span></div>
+        <div class="card">
+          <div class="hline">
+            <span class="lab">In</span>
+            <div class="track"><i style="width:100%"></i></div>
+            <span class="v">$9,500</span>
+          </div>
+          <div class="hline">
+            <span class="lab">Out</span>
+            <div class="track"><i style="width:75.15%"></i></div>
+            <span class="v">$7,139</span>
+          </div>
+          <div class="meta">Bars scaled to money in (paychecks). Blue only. Reinvested income not in the In bar.</div>
+        </div>
+
+        <div class="diff">
+          <div class="lbl">Difference</div>
+          <div class="amt-big">$2,361 ahead</div>
+          <div class="meta">Each month. Extra goes to long-term savings through the suggested move on Accounts.</div>
+        </div>
+
+        <div class="sec-h"><span class="n">Household setting</span><span class="dim">Default</span></div>
+        <div class="card">
+          <div class="setting">
+            <div>
+              <div class="lab">Count investment income every month</div>
+              <div class="meta" style="margin:2px 0 0">Turn on if you live on it today, e.g. in retirement.</div>
+            </div>
+            <div class="tog" title="Off" aria-label="Count investment income every month: off"></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="sec-h"><span class="n">Who needs to work?</span><span class="dim">Estimates · Epic 3A.3</span></div>
+        <div class="card">
+          <div class="cost-line">Monthly cost <b>$7,139</b> · Monthly plans $5,500 + Your Number $1,639<br>
+          Take-home · Dana <b>$6,000</b>/mo · Sam <b>$3,500</b>/mo<br>
+          Investment income <b>$410</b>/mo (12-mo avg) · Long-term savings on hand: <b>$60,000</b></div>
+
+          <div class="scenario">
+            <div class="sh"><span class="sn">Both work</span><span class="sv">$2,361 ahead</span></div>
+            <div class="sd">$9,500 in each month. Extra can go to Long-term savings.</div>
+            <div class="math">Investment income is reinvested (not counted while both work).</div>
+          </div>
+          <div class="scenario">
+            <div class="sh"><span class="sn">Only Dana works</span><span class="sv">$729 short</span></div>
+            <div class="sd">Long-term savings cover that for about <b>6 years 10 months</b>.</div>
+            <div class="math">Counts $410/mo of investment income. $60,000 ÷ $729 ≈ 82.3 months. Income needed so savings never run out: about $6,729/mo (monthly cost minus investment income). Estimate, not a guarantee.</div>
+          </div>
+          <div class="scenario">
+            <div class="sh"><span class="sn">Only Sam works</span><span class="sv">$3,229 short</span></div>
+            <div class="sd">Long-term savings cover that for about <b>1 year 7 months</b>.</div>
+            <div class="math">Counts $410/mo of investment income. $60,000 ÷ $3,229 ≈ 18.6 months. Income needed so savings never run out: about $6,729/mo (monthly cost minus investment income). Estimate, not a guarantee.</div>
+          </div>
+          <div class="scenario">
+            <div class="sh"><span class="sn">Neither works</span><span class="sv">$6,729 short</span></div>
+            <div class="sd">Long-term savings last about <b>9 months</b>.</div>
+            <div class="math">Counts $410/mo of investment income. $60,000 ÷ $6,729 ≈ 8.9 months. Retirement money: $385,400 today. Dana’s 401(k) is available at 59½ in 2039 (example).</div>
+            <div class="forecast">
+              <div class="f"><div class="fk">Bear</div><div class="fv">$520k</div></div>
+              <div class="f"><div class="fk">Base</div><div class="fv">$710k</div></div>
+              <div class="f"><div class="fk">Bull</div><div class="fv">$980k</div></div>
+            </div>
+            <div class="math">Estimates at Dana’s 401(k) availability in 2039. Assumes stated growth rates. Estimate, not a guarantee. Can be lower; balances can lose value.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

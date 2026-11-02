@@ -1,0 +1,20 @@
+{
+  "withStageshow": {
+    "headline": "The product at reading size. One balance leads, and the frame crops instead of shrinking the screen.",
+    "captions": {
+      "desktop": "Accounts",
+      "phone": "Accounts on a phone",
+      "cashflow": "Cash flow",
+      "states": "After you connect a bank"
+    }
+  },
+  "withoutStageshow": {
+    "headline": "The same screen pasted into a box, then a flat grid where every region weighs the same.",
+    "captions": {
+      "desktop": "Dashboard screenshot",
+      "phone": "Mobile screenshot",
+      "cashflow": "Another screenshot",
+      "states": "State inventory"
+    }
+  }
+}

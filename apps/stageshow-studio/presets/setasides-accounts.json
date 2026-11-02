@@ -1,0 +1,199 @@
+{
+  "id": "setasides-accounts",
+  "name": "Setasides Accounts page",
+  "product": "Setasides",
+  "asOf": "2026-10-31",
+  "householdLabel": "Dana & Sam Park",
+  "default": true,
+  "sources": {
+    "mockups": [
+      "design/mockups/accounts-desktop.html",
+      "design/mockups/accounts-phone.html",
+      "design/mockups/cashflow-desktop.html",
+      "design/mockups/cashflow-phone.html"
+    ],
+    "screenshots": [
+      "design/screenshots/accounts-desktop.png",
+      "design/screenshots/accounts-phone.png",
+      "design/screenshots/cashflow-desktop.png",
+      "design/screenshots/cashflow-phone.png"
+    ],
+    "designNotes": "design/prd/accounts-three-accounts-and-work-scenarios.md",
+    "productPrdExcerpts": "design/prd/plaid-accounts-realtime-excerpts.md",
+    "productPrdDocId": "1_QqRR6s4yb25KqKGRUIShsOiEmlUUh3j0o6jJJedB6A"
+  },
+  "tokens": {
+    "bg": "#f5f7fb",
+    "card": "#ffffff",
+    "ink": "#0f172a",
+    "muted": "#64748b",
+    "line": "#e5e9f2",
+    "blue": "#2563eb",
+    "blue50": "#eff4ff",
+    "pageChrome": "#e8ecf3",
+    "radiusPx": 14,
+    "barTrack": "#e6e9ee",
+    "fontStack": "-apple-system, BlinkMacSystemFont, Segoe UI, Inter, Roboto, Helvetica, Arial, sans-serif",
+    "rules": {
+      "progressBars": "blue-only",
+      "shortfalls": "gray-never-red",
+      "gainsAccent": "not-green",
+      "kindLabels": "plain-gray-text-no-emoji-no-pills",
+      "amounts": "big-bold-tabular",
+      "yields": "labeled-as-targets-with-disclaimer"
+    }
+  },
+  "chrome": {
+    "title": "Accounts",
+    "tabs": [
+      "Accounts",
+      "Plans",
+      "Cash flow"
+    ],
+    "activeTab": "Accounts",
+    "subtitleTemplate": "{householdLabel} \u00b7 as of {asOf}"
+  },
+  "layout": {
+    "desktop": {
+      "maxWidth": 1180,
+      "columns": [
+        "main",
+        "retirement"
+      ],
+      "mainRatio": 1.15,
+      "sideRatio": 0.95
+    },
+    "phone": {
+      "width": 390,
+      "stack": [
+        "total",
+        "threeAccounts",
+        "suggestedMove",
+        "retirement"
+      ]
+    },
+    "bentoTiles": [
+      {
+        "id": "accounts-hero",
+        "from": "accounts-desktop",
+        "role": "hero"
+      },
+      {
+        "id": "cashflow",
+        "from": "cashflow-desktop",
+        "role": "secondary",
+        "optional": true
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "total",
+      "label": "Total balance",
+      "fields": [
+        "totalBalance",
+        "nonRetirementSubtotal",
+        "retirementSubtotal"
+      ]
+    },
+    {
+      "id": "threeAccounts",
+      "title": "Your three accounts",
+      "dim": "Fill order",
+      "accounts": [
+        {
+          "role": "checking",
+          "name": "Checking",
+          "kind": "This month's spending",
+          "targetBasis": "2 \u00d7 (Monthly plans + Your Number)",
+          "showBar": true
+        },
+        {
+          "role": "savings",
+          "name": "Savings",
+          "kind": "Covers what's due in the next 2 years",
+          "targetYield": "Target 3\u20135%",
+          "showBar": true,
+          "showEarnedThisYear": true
+        },
+        {
+          "role": "longTerm",
+          "name": "Long-term savings",
+          "kind": "Everything beyond 2 years",
+          "targetYield": "Target 5%+",
+          "showBar": true,
+          "showEarnedThisYear": true,
+          "showMarketChangeSeparate": true
+        }
+      ],
+      "disclaimer": "Target yields aren't a promise. Returns can be lower, and long-term savings can lose value."
+    },
+    {
+      "id": "suggestedMove",
+      "title": "Suggested move",
+      "dim": "Primary saver",
+      "actions": [
+        "Approve and move",
+        "I'll move it myself"
+      ],
+      "footnote": "Moves only between your own accounts."
+    },
+    {
+      "id": "retirement",
+      "title": "Retirement",
+      "dim": "Read-only",
+      "honesty": "Based on current IRS rules. Not tax advice. We never move retirement money."
+    }
+  ],
+  "prdStills": [
+    {
+      "id": "connect",
+      "acc": "ACC.1",
+      "caption": "Connect your bank"
+    },
+    {
+      "id": "syncing",
+      "acc": "ACC.4",
+      "caption": "Updating balances\u2026"
+    },
+    {
+      "id": "live-update",
+      "acc": "ACC.7",
+      "caption": "Balance updates after sync"
+    },
+    {
+      "id": "reauth",
+      "acc": "ACC.5",
+      "caption": "Reconnect Example Bank to keep balances current"
+    },
+    {
+      "id": "disconnect",
+      "acc": "ACC.6",
+      "caption": "Remove connected bank"
+    },
+    {
+      "id": "stale-price",
+      "acc": "\u00a716",
+      "caption": "Price as of \u2026 (stale)"
+    }
+  ],
+  "copyBan": [
+    "Plaid",
+    "webhook",
+    "Realtime",
+    "MCP",
+    "waterfall"
+  ],
+  "stageshowHints": {
+    "closestGold": [
+      "static-card",
+      "bento",
+      "device-pair",
+      "window-row"
+    ],
+    "fidelity": "standard",
+    "theme": "light",
+    "palette": "accent",
+    "restraint": "Real words only on focal balances, status, and the suggested move; bars/filler elsewhere"
+  }
+}
