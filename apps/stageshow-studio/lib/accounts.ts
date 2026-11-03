@@ -1,11 +1,10 @@
-import { readFileSync, existsSync } from "node:fs";
+import { readFileSync } from "node:fs";
 import path from "node:path";
 import type { AccountsFile } from "./types";
 
 export type AccountsLoad = {
   data: AccountsFile;
-  source: "sample" | "local";
-  localInvalid: boolean;
+  source: "sample";
 };
 
 function isAccounts(value: unknown): value is AccountsFile {
@@ -24,35 +23,15 @@ function isAccounts(value: unknown): value is AccountsFile {
   );
 }
 
-function readJson(file: string): unknown {
-  const raw = readFileSync(file, "utf8");
-  return JSON.parse(raw) as unknown;
-}
-
 /**
- * Prefer data/accounts.local.json when it is present and valid.
- * The local file is never logged, echoed in errors, or committed.
+ * Always read the committed fictional Park household.
+ * There is no local override.
  */
 export function loadAccounts(): AccountsLoad {
-  const dir = path.join(process.cwd(), "data");
-  const samplePath = path.join(dir, "accounts.sample.json");
-  const localPath = path.join(dir, "accounts.local.json");
-  const sample = readJson(samplePath);
+  const samplePath = path.join(process.cwd(), "data", "accounts.sample.json");
+  const sample = JSON.parse(readFileSync(samplePath, "utf8")) as unknown;
   if (!isAccounts(sample)) {
     throw new Error("accounts.sample.json is missing required fields");
   }
-
-  if (!existsSync(localPath)) {
-    return { data: sample, source: "sample", localInvalid: false };
-  }
-
-  try {
-    const local = readJson(localPath);
-    if (!isAccounts(local)) {
-      return { data: sample, source: "sample", localInvalid: true };
-    }
-    return { data: local, source: "local", localInvalid: false };
-  } catch {
-    return { data: sample, source: "sample", localInvalid: true };
-  }
+  return { data: sample, source: "sample" };
 }

@@ -1,8 +1,6 @@
 # accounts data schema
 
-Committed sample: `accounts.sample.json` (Park household).
-
-Optional local override (gitignored): `accounts.local.json` — same shape; may include real balances/holdings for local runs only.
+Committed sample: `accounts.sample.json` (Park household). The app always reads this file, including at runtime. It is fictional. Do not put real finances here.
 
 ```jsonc
 {
@@ -14,5 +12,3 @@ Optional local override (gitignored): `accounts.local.json` — same shape; may 
   "cashFlow": { "moneyIn": [], "totalIn": 0, "investmentIncomeMonthly": 0, "moneyOut": {}, "difference": 0 }
 }
 ```
-
-Drop-in: copy `accounts.sample.json` → `accounts.local.json` and edit. Restart `bun run dev`. Never commit the local file. Screenshots/video must use sample data.

@@ -321,9 +321,7 @@ export async function generateShow(input: {
 
   const loaded = loadAccounts();
   let sides = fixture;
-  let notice: string | null = loaded.localInvalid
-    ? "accounts.local.json could not be read. Showing the Park sample."
-    : null;
+  let notice: string | null = null;
   let mode: ShowResponse["mode"] = "mock";
   let providerName: string | null = null;
   let model: string | null = null;

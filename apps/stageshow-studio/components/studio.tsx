@@ -243,19 +243,12 @@ export function Studio() {
                 </Badge>
               ) : null}
               {show?.kind === "preset" ? (
-                <Badge variant="outline">
-                  {show.dataSource === "local" ? "Local accounts file" : "Park sample"}
-                </Badge>
+                <Badge variant="outline">Park sample</Badge>
               ) : null}
             </div>
             {error ? <p className="text-sm">{error}</p> : null}
             {show?.notice ? (
               <p className="text-sm text-muted-foreground">{show.notice}</p>
-            ) : null}
-            {show?.dataSource === "local" ? (
-              <p className="text-sm text-muted-foreground">
-                Reading accounts.local.json. Share screenshots from the Park sample, with that file removed.
-              </p>
             ) : null}
           </form>
         </CardContent>
@@ -324,7 +317,7 @@ export function Studio() {
           benjitaylor/skills
         </a>
         ). The skill is installed at generate time and is not vendored here. Setasides stills use the
-        fictional Park household unless you drop in a local accounts file.
+        fictional Park household.
       </footer>
     </main>
   );

@@ -49,12 +49,10 @@ Fictional Dana & Sam Park — safe to commit and required for screenshots/video:
 | Roth IRA | Sam $73,400 |
 | Cash flow (bento tile) | Dana $6,000 + Sam $3,500 = $9,500 in; out $7,139; **$2,361 ahead**; $410/mo investment income reinvested by default |
 
-### Optional local real data (runtime only)
-- App reads `data/accounts.local.json` if present; otherwise `data/accounts.sample.json`.
-- Add `data/accounts.local.json` to the app `.gitignore` (and never force-add it).
-- Local file **may** include Brian's real balances and holdings for his own runs.
-- **Never** commit, log, print, or embed local data. PR screenshots and video **must** use sample/Park data only (`MOCK` path or with local file absent).
-- Never read bank logins or Plaid tokens. Document the JSON schema and "drop in your file" steps in README.
+### Sample data only
+- The app always reads `data/accounts.sample.json` (fictional Park household), including at runtime. There is no local accounts override.
+- Never load real finances, bank logins, or Plaid tokens. Document the JSON schema in `data/README.md`.
+- PR screenshots and video use this sample only.
 
 ### PRD states as Stageshow stills / short animations
 From Product PRD excerpts in `design/prd/plaid-accounts-realtime-excerpts.md` (full draft: Google Doc `1_QqRR6s4yb25KqKGRUIShsOiEmlUUh3j0o6jJJedB6A`). Customer copy: plain language; never say "Plaid", "webhook", "Realtime", or "MCP" on the faux UI.
@@ -81,13 +79,13 @@ MVP can ship **static stills** for each state plus one short live-update loop; f
   ```
 - UI: preset chips (default **Setasides Accounts**) + textarea for a free-text idea + Generate. Side-by-side columns: **With Stageshow** | **Without Stageshow**. Each column: 2–4 stills + one bento grid preview.
 - Generation path (server route):
-  1. Build a shared product brief from the preset JSON (or free-text) + accounts data (local or sample).
+  1. Build a shared product brief from the preset JSON (or free-text) + the Park sample accounts data.
   2. **With** path: system/developer prompt includes Stageshow skill guidance (loaded at runtime from an installed skill or a **summarized** instruction block derived at generate-time—not a vendored kit). Ask the model for React+CSS (or structured scene JSON the app renders) following Stageshow rules; prefer starting conceptually from gold patterns like `static-card` / `bento` / `device-pair`.
   3. **Without** path: same brief, generic "make a product mock UI" prompt, no Stageshow rules.
   4. US-hosted models only: OpenAI, Anthropic, or US open models via Together / Fireworks / Baseten (e.g. gpt-oss-120b). **Never** DeepSeek, Kimi, Qwen, or other Chinese-lab models.
 - **MOCK mode:** `MOCK_PROVIDERS=1` or no keys → return committed fixtures under `fixtures/` that already illustrate a clear with-vs-without gap (Park Accounts). App must run with zero keys.
 - `.env.example`: `OPENAI_API_KEY`, `ANTHROPIC_API_KEY`, `TOGETHER_API_KEY`, `FIREWORKS_API_KEY`, `BASETEN_API_KEY`, `MOCK_PROVIDERS`.
-- README: setup, preset, accounts schema, local file drop-in, Stageshow credit + no-vendoring note, mock mode.
+- README: setup, preset, accounts schema, Stageshow credit + no-vendoring note, mock mode. Sample data only.
 - State in memory / `localStorage` only.
 
 ## Out (deferred)
@@ -105,7 +103,7 @@ MVP can ship **static stills** for each state plus one short live-update loop; f
 - [x] Free-text idea path works the same side-by-side flow
 - [x] Bento includes at least one Accounts hero tile; Cash flow may appear as a second tile
 - [x] PRD states (connect, syncing, live update, re-sign-in, disconnect, stale price) appear as labeled stills or one short animation
-- [x] `accounts.local.json` overrides sample when present; absent → Park sample; local file gitignored
+- [x] Runtime accounts data is the Park household in `accounts.sample.json` only; no local override
 - [x] `bun install && bun run dev` works from `apps/stageshow-studio/` with no keys (mock fixtures)
 - [x] Capture ≥1 screenshot and ≥1 video of the running app (**sample/Park data only**) and attach both to the PR
 

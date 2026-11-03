@@ -1,5 +1,5 @@
 {
-  "_comment": "Fictional Park household \u2014 safe to commit. Used when data/accounts.local.json is absent. Never put real finances here.",
+  "_comment": "Fictional Park household \u2014 safe to commit. The app always reads this file. Never put real finances here.",
   "household": {
     "label": "Dana & Sam Park",
     "asOf": "2026-10-31"

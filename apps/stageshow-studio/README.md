@@ -38,15 +38,7 @@ Models from DeepSeek, Kimi, Qwen, GLM, and other Chinese labs are rejected. US-h
 
 Live mode asks the model for structured scene JSON. The page renders that JSON. It does not inject model HTML.
 
-## Your own balances
-
-`data/accounts.sample.json` is the committed Park household. To try your own numbers locally:
-
-1. Copy `data/accounts.sample.json` to `data/accounts.local.json`.
-2. Edit the copy. Same shape — see `data/README.md`.
-3. Restart `bun run dev`.
-
-The local file is gitignored. The server never logs it. If the file is missing or invalid, the Park sample is used. Screenshots and video for this demo should be the Park sample only, with no local file present.
+Accounts stills always use the fictional Park household in `data/accounts.sample.json`. See `data/README.md` for the shape. There is no local accounts file.
 
 ## Stageshow credit
 
