@@ -31,6 +31,30 @@
       "date": "2026-10-20",
       "status": "proposed",
       "slug": "agent-readable-audit"
+    },
+    {
+      "id": "2114400946218492246",
+      "title": "Home router privacy audit (Claude reverse-engineers a Wi-Fi router: ISP remote-management channel TR-069, plaintext DNS, device history, _nomap SSID opt-out)",
+      "url": "https://x.com/0xCodila/status/2114400946218492246",
+      "date": "2026-10-26",
+      "status": "proposed",
+      "slug": "router-privacy-check"
+    },
+    {
+      "id": "2115445872402329716",
+      "title": "AWS Infinity (hydro-project/infinity): Rust agent runtime that suspends agents at tool calls, 75k idle agents in 8 GB; via jhleath quoting Shaan_GS 2114786501737488436",
+      "url": "https://x.com/jhleath/status/2115445872402329716",
+      "date": "2026-10-29",
+      "status": "proposed",
+      "slug": "agent-hibernation-lab"
+    },
+    {
+      "id": "2116593247854453244",
+      "title": "Stageshow (benjitaylor/skills): agent skill for production-grade faux UI stills, animations, bento grids",
+      "url": "https://x.com/benjitaylor/status/2116593247854453244",
+      "date": "2026-11-02",
+      "status": "approved",
+      "slug": "stageshow-studio"
     }
   ],
   "skipped": [
@@ -56,6 +80,111 @@
       "date": "2026-10-16",
       "reason": "skipped by Brian",
       "slug": "ste-docs-linter"
+    },
+    {
+      "id": "2114566172163407964",
+      "title": "jsnnsa 'where the world is going' software thesis",
+      "url": "https://x.com/jsnnsa/status/2114566172163407964",
+      "date": "2026-10-26",
+      "reason": "opinion thread, no concrete tech"
+    },
+    {
+      "id": "2114625963183284344",
+      "title": "CJHandmer 'make large jobs small' quote of AYi_AInotes Marc Andreessen interview clip",
+      "url": "https://x.com/CJHandmer/status/2114625963183284344",
+      "date": "2026-10-27",
+      "reason": "commentary, no concrete tech"
+    },
+    {
+      "id": "2115549535883956399",
+      "title": "HumbleFlow 'read the dead' quote",
+      "url": "https://x.com/HumbleFlow/status/2115549535883956399",
+      "date": "2026-10-29",
+      "reason": "quote, no tech"
+    },
+    {
+      "id": "2115660634788638787",
+      "title": "jsnnsa commit-count update",
+      "url": "https://x.com/jsnnsa/status/2115660634788638787",
+      "date": "2026-10-29",
+      "reason": "commentary, no concrete tech"
+    },
+    {
+      "id": "2115425807388619022",
+      "title": "emilkowalski 244-term agent vocabulary for aiforui.dev",
+      "url": "https://x.com/emilkowalski/status/2115425807388619022",
+      "date": "2026-10-29",
+      "reason": "paid course glossary, not a library/API"
+    },
+    {
+      "id": "2115572316734193705",
+      "title": "ericosiu outcome-based AI support pricing",
+      "url": "https://x.com/ericosiu/status/2115572316734193705",
+      "date": "2026-10-29",
+      "reason": "pricing commentary, no tech"
+    },
+    {
+      "id": "2115503827738640791",
+      "title": "TheEthanDing Snowflake CEO market-top take",
+      "url": "https://x.com/TheEthanDing/status/2115503827738640791",
+      "date": "2026-10-29",
+      "reason": "market commentary"
+    },
+    {
+      "id": "2115913677656433035",
+      "title": "gregisenberg 'SaaS is dead' 11-minute video",
+      "url": "https://x.com/gregisenberg/status/2115913677656433035",
+      "date": "2026-10-30",
+      "reason": "strategy commentary, no concrete tech"
+    },
+    {
+      "id": "2115804627224432934",
+      "title": "Indian_Bronson recommending WillManidis long post",
+      "url": "https://x.com/Indian_Bronson/status/2115804627224432934",
+      "date": "2026-10-30",
+      "reason": "essay recommendation, no concrete tech"
+    },
+    {
+      "id": "2116957574008590445",
+      "title": "shannholmberg breakdown of Stageshow (same tech as proposal)",
+      "url": "https://x.com/shannholmberg/status/2116957574008590445",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "2116979636248932356",
+      "title": "L0m3z midterms macro article",
+      "url": "https://x.com/L0m3z/status/2116979636248932356",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "2116283459442213364",
+      "title": "blackishsoull Gibson/Downey story",
+      "url": "https://x.com/blackishsoull/status/2116283459442213364",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "2113486208797901274",
+      "title": "ChristianHeiens discourse take",
+      "url": "https://x.com/ChristianHeiens/status/2113486208797901274",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "2112937089419387160",
+      "title": "Addepar $10T AUM milestone",
+      "url": "https://x.com/Addepar/status/2112937089419387160",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "2113055541975290017",
+      "title": "gregisenberg ideabrowser.com reply",
+      "url": "https://x.com/gregisenberg/status/2113055541975290017",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "2111837226006921640",
+      "title": "Argona0x Karpathy second-brain on Grok Bot",
+      "url": "https://x.com/Argona0x/status/2111837226006921640",
+      "date": "2026-11-02"
     }
   ],
   "built": []

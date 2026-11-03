@@ -1,0 +1,129 @@
+{
+  "_comment": "Fictional Park household \u2014 safe to commit. The app always reads this file. Never put real finances here.",
+  "household": {
+    "label": "Dana & Sam Park",
+    "asOf": "2026-10-31"
+  },
+  "totals": {
+    "totalBalance": 500000,
+    "nonRetirement": 114600,
+    "retirement": 385400
+  },
+  "accounts": [
+    {
+      "role": "checking",
+      "name": "Checking",
+      "balance": 16400,
+      "target": 14278,
+      "status": "$2,122 over target",
+      "barPct": 100,
+      "meta": "0.01% APY \u00b7 Joint checking \u00b7\u00b7\u00b78049",
+      "mask": "8049"
+    },
+    {
+      "role": "savings",
+      "name": "Savings",
+      "balance": 38200,
+      "target": 40000,
+      "status": "$1,800 short",
+      "barPct": 95.5,
+      "targetYield": "3\u20135%",
+      "meta": "Past 12 months: 4.0% \u00b7 High-yield savings \u00b7\u00b7\u00b72214",
+      "earnedThisYear": {
+        "amount": 1528,
+        "label": "interest (4.0%)"
+      },
+      "mask": "2214"
+    },
+    {
+      "role": "longTerm",
+      "name": "Long-term savings",
+      "balance": 60000,
+      "target": null,
+      "status": "On track for its role",
+      "barPct": 100,
+      "targetYield": "5%+",
+      "meta": "Past 12 months: 6.2% \u00b7 Taxable brokerage \u00b7\u00b7\u00b79901",
+      "earnedThisYear": {
+        "amount": 3392,
+        "label": "dividends and interest"
+      },
+      "marketChangeYtd": 2080,
+      "mask": "9901",
+      "holdings": [
+        {
+          "symbol": "VTI",
+          "name": "Total Stock Market ETF",
+          "shares": 120,
+          "price": 280.0,
+          "asOf": "2026-10-31",
+          "stale": false
+        },
+        {
+          "symbol": "BND",
+          "name": "Total Bond Market ETF",
+          "shares": 200,
+          "price": 72.0,
+          "asOf": "2026-10-28",
+          "stale": true
+        }
+      ]
+    }
+  ],
+  "suggestedMove": {
+    "amount": 1800,
+    "fromRole": "checking",
+    "toRole": "savings",
+    "title": "Move $1,800 from Checking to Savings",
+    "subtitle": "Tops Savings up to its $40,000 target. Checking keeps $322 over its target. Any extra next time goes to Long-term savings.",
+    "beforeAfter": {
+      "checking": {
+        "before": 16400,
+        "after": 14600
+      },
+      "savings": {
+        "before": 38200,
+        "after": 40000
+      }
+    }
+  },
+  "retirement": [
+    {
+      "name": "401(k)",
+      "owner": "Dana",
+      "balance": 312000,
+      "detail": "available at 59\u00bd \u00b7 ~2039",
+      "asOf": "2026-10-28"
+    },
+    {
+      "name": "Roth IRA",
+      "owner": "Sam",
+      "balance": 73400,
+      "detail": "contributions anytime; earnings at 59\u00bd",
+      "asOf": "2026-10-28"
+    }
+  ],
+  "cashFlow": {
+    "moneyIn": [
+      {
+        "person": "Dana",
+        "takeHome": 6000
+      },
+      {
+        "person": "Sam",
+        "takeHome": 3500
+      }
+    ],
+    "totalIn": 9500,
+    "investmentIncomeMonthly": 410,
+    "investmentIncomeCounted": false,
+    "investmentIncomeNote": "Reinvested",
+    "moneyOut": {
+      "monthlyPlans": 5500,
+      "yourNumber": 1639,
+      "total": 7139
+    },
+    "difference": 2361,
+    "differenceLabel": "$2,361 ahead"
+  }
+}
