@@ -31,6 +31,14 @@
       "date": "2026-10-20",
       "status": "proposed",
       "slug": "agent-readable-audit"
+    },
+    {
+      "id": "2117734977312047537",
+      "title": "grill-me (mattpocock/skills): agent skill that interrogates an idea before anything gets built; via gregisenberg's agent-workflow post",
+      "url": "https://x.com/gregisenberg/status/2117734977312047537",
+      "date": "2026-11-04",
+      "status": "approved",
+      "slug": "grill-me-gauntlet"
     }
   ],
   "skipped": [
